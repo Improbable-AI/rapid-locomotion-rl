@@ -97,6 +97,10 @@ pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu
     ```
 5. For troubleshooting check docs `isaacgym/docs/index.html`
 
+#### Install the `mini_gym` package
+
+In this repository, run `pip install -e .`
+
 ### Verifying the Installation
 
 If everything is installed correctly, you should be able to run the test script with:
