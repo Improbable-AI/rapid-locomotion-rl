@@ -326,7 +326,7 @@ class LeggedRobot(BaseTask):
                                   self.dof_vel * self.obs_scales.dof_vel,
                                   self.actions
                                   ), dim=-1)
-        if self.cfg.env.observe_command and not self.cfg.env.observe_height_command:
+        if self.cfg.env.observe_command:
             self.obs_buf = torch.cat((self.projected_gravity,
                                       self.commands[:, :3] * self.commands_scale,
                                       (self.dof_pos - self.default_dof_pos) * self.obs_scales.dof_pos,
@@ -334,13 +334,6 @@ class LeggedRobot(BaseTask):
                                       self.actions
                                       ), dim=-1)
 
-        if self.cfg.env.observe_height_command:
-            self.obs_buf = torch.cat((self.projected_gravity,
-                                      self.commands * self.commands_scale,
-                                      (self.dof_pos - self.default_dof_pos) * self.obs_scales.dof_pos,
-                                      self.dof_vel * self.obs_scales.dof_vel,
-                                      self.actions
-                                      ), dim=-1)
 
         if self.cfg.env.observe_vel:
             if self.cfg.commands.global_reference:
@@ -877,13 +870,6 @@ class LeggedRobot(BaseTask):
         if self.cfg.env.observe_command:
             noise_vec = torch.cat((torch.ones(3) * noise_scales.gravity * noise_level,
                                    torch.zeros(3),
-                                   torch.ones(12) * noise_scales.dof_pos * noise_level * self.obs_scales.dof_pos,
-                                   torch.ones(12) * noise_scales.dof_vel * noise_level * self.obs_scales.dof_vel,
-                                   torch.zeros(self.num_actions),
-                                   ), dim=0)
-        if self.cfg.env.observe_height_command:
-            noise_vec = torch.cat((torch.ones(3) * noise_scales.gravity * noise_level,
-                                   torch.zeros(4),
                                    torch.ones(12) * noise_scales.dof_pos * noise_level * self.obs_scales.dof_pos,
                                    torch.ones(12) * noise_scales.dof_vel * noise_level * self.obs_scales.dof_vel,
                                    torch.zeros(self.num_actions),

@@ -26,9 +26,9 @@ def run_env(render=False, headless=False):
     Cfg.domain_rand.randomize_base_mass = True
     Cfg.domain_rand.added_mass_range = [0., 6.]
     Cfg.terrain.terrain_noise_magnitude = 0.0
-    Cfg.asset.fix_base_link = True
+    # Cfg.asset.fix_base_link = True
 
-    env = gym.make("VelocityTrackingEasyEnv-v0", headless=render and not headless, cfg=Cfg)
+    env = gym.make("VelocityTrackingEasyEnv-v0", headless=headless, cfg=Cfg)
     env.reset()
 
     if render and headless:
