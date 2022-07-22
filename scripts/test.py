@@ -8,6 +8,7 @@ from tqdm import trange
 from mini_gym.envs import *
 from mini_gym.envs.base.legged_robot_config import Cfg
 from mini_gym.envs.mini_cheetah.mini_cheetah_config import config_mini_cheetah
+from mini_gym.envs.mini_cheetah.velocity_tracking import VelocityTrackingEasyEnv
 
 
 def run_env(render=False, headless=False):
@@ -28,7 +29,7 @@ def run_env(render=False, headless=False):
     Cfg.terrain.terrain_noise_magnitude = 0.0
     # Cfg.asset.fix_base_link = True
 
-    env = gym.make("VelocityTrackingEasyEnv-v0", headless=headless, cfg=Cfg)
+    env = VelocityTrackingEasyEnv(sim_device='cuda:0', headless=False, cfg=Cfg)
     env.reset()
 
     if render and headless:

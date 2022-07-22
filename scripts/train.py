@@ -3,10 +3,10 @@ def train_mc(headless=True):
     import isaacgym
     assert isaacgym
     import torch
-    import gym
 
     from mini_gym.envs.base.legged_robot_config import Cfg
     from mini_gym.envs.mini_cheetah.mini_cheetah_config import config_mini_cheetah
+    from mini_gym.envs.mini_cheetah.velocity_tracking import VelocityTrackingEasyEnv
 
     from ml_logger import logger
 
@@ -18,7 +18,7 @@ def train_mc(headless=True):
 
     config_mini_cheetah(Cfg)
 
-    env = gym.make("VelocityTrackingEasyEnv-v0", headless=headless, cfg=Cfg)
+    env = VelocityTrackingEasyEnv(sim_device='cuda:0', headless=False, cfg=Cfg)
 
     # log the experiment parameters
     logger.log_params(AC_Args=vars(AC_Args), PPO_Args=vars(PPO_Args), RunnerArgs=vars(RunnerArgs),

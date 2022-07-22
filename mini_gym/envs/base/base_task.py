@@ -6,6 +6,9 @@ import gym
 import torch
 from isaacgym import gymapi, gymutil
 
+from gym import spaces
+import numpy as np
+
 
 # Base class for RL tasks
 class BaseTask(gym.Env):

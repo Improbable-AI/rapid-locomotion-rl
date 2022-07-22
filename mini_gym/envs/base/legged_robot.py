@@ -959,16 +959,6 @@ class LeggedRobot(BaseTask):
         self.commands = torch.zeros_like(self.commands_value)  # x vel, y vel, yaw vel, heading
         self.commands_scale = torch.tensor([self.obs_scales.lin_vel, self.obs_scales.lin_vel, self.obs_scales.ang_vel],
                                            device=self.device, requires_grad=False, )
-        # if self.cfg.env.observe_height_command:
-        #     self.commands_scale = torch.tensor(
-        #         [self.obs_scales.lin_vel, self.obs_scales.lin_vel, self.obs_scales.ang_vel, self.obs_scales.body_height_cmd],
-        #         device=self.device, requires_grad=False, )
-        # self.jump_interval = int(self.cfg.commands.jump_interval_s / self.dt)
-        # self.jump_duration = int(self.cfg.commands.jump_duration_s / self.dt)
-        # self.jump_profile = torch.ones(self.jump_interval, 4, dtype=torch.float, device=self.device, requires_grad=False)
-        # self.jump_start = self.jump_interval // 2 - self.jump_duration // 2
-        # self.jump_end = self.jump_interval // 2 + self.jump_duration // 2
-        # self.jump_profile[:self.jump_start, 3] = self.jump_profile[self.jump_end:, 3] = 0
 
         self.feet_air_time = torch.zeros(self.num_envs, self.feet_indices.shape[0], dtype=torch.float,
                                          device=self.device, requires_grad=False)
