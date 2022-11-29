@@ -14,7 +14,7 @@ This repository provides an implementation of the paper:
       <em>Robotics: Science and Systems</em>, 2022
       <br>
       <a href="https://arxiv.org/pdf/2205.02824.pdf">paper</a> /
-      <a href="data/margolis2022agile.bib">bibtex</a> /
+      <a href="#bibtex">bibtex</a> /
       <a href="https://agility.csail.mit.edu/" target="_blank">project page</a>
     <br>
 </td>
@@ -162,3 +162,15 @@ If it does not appear, and you're working in docker, make sure you haven't forgo
 ## Support
 
 For questions about the code, please create an issue in the repository.
+
+## Bibtex <a name="bibtex"></a>
+
+```
+@inproceedings{margolisyang2022rapid,
+  title={Rapid Locomotion via Reinforcement Learning},
+  author={Margolis, Gabriel and Yang, Ge and Paigwar, 
+          Kartik and Chen, Tao and Agrawal, Pulkit},
+  booktitle={Robotics: Science and Systems},
+  year={2022}
+}
+```
