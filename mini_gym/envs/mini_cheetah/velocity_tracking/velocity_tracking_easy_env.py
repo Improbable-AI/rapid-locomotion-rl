@@ -1,6 +1,6 @@
 from isaacgym import gymutil, gymapi
 import torch
-from params_proto.neo_proto import Meta
+from params_proto import Meta
 from typing import Union
 
 from mini_gym.envs.base.legged_robot import LeggedRobot
