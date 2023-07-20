@@ -1,6 +1,6 @@
 # License: see [LICENSE, LICENSES/legged_gym/LICENSE]
 
-from params_proto.neo_proto import PrefixProto, ParamsProto
+from params_proto import PrefixProto, ParamsProto
 
 
 class Cfg(PrefixProto, cli=False):
